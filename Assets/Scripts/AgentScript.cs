@@ -54,6 +54,10 @@ public class AgentScript : MonoBehaviour
         if (Vector3.Distance(transform.position, destinoActual.position) <= 0.8f)
         {
             indicePatrulla += 1;
+
+            if (indicePatrulla == puntosPatrulla.Length) {
+                indicePatrulla = 0;
+            }
             destinoActual = puntosPatrulla[indicePatrulla];
         }
     }
@@ -69,7 +73,7 @@ public class AgentScript : MonoBehaviour
         {
             //reiniciamos patrulla
             persiguiendo = false;
-            indicePatrulla = Random.Range(0, 4);
+            indicePatrulla = Random.Range(0, 3);
             destinoActual = puntosPatrulla[indicePatrulla];
             agente.SetDestination(destinoActual.position);
         }
